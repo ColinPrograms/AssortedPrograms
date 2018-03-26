@@ -23,24 +23,14 @@ public class KnightsFen {
 					}
 				}
 			}
-			Pair blah = new Pair(6,6);
-			playGame(startBoard, 0, emptySpace, blah);
+			playGame(startBoard, 0, emptySpace, emptySpace);
 			if(lowestMoves < 11) {
 				System.out.println("Solvable in " + lowestMoves + " move(s).");
+				lowestMoves = 11;
 			}else {
-				System.out.println("Unsolvable in less than 11 move(s).");				
+				System.out.println("Unsolvable in less than 11 move(s).");			
 			}
-			//printBoard(startBoard);
 		}
-	}
-	static void printBoard(int[][] board) {
-		for(int k = 0; k < 5; k++) {
-			for(int j = 0; j < 5; j++) {
-				System.out.print(board[k][j]);
-			}
-			System.out.println();
-		}
-		System.out.println();
 	}
 
 	static void playGame(int[][] board, int moves, Pair blank, Pair previousBlank) {
@@ -65,6 +55,7 @@ public class KnightsFen {
 			}
 		}
 	}
+
 	static List<Pair> createStatements(int[][] board, Pair blank, Pair previousBlank) {
 		List<Pair> validCoordinates = new ArrayList<Pair>();
 		if(checkValid(blank.row-1,blank.col-2, previousBlank)) {
@@ -101,6 +92,7 @@ public class KnightsFen {
 		}
 		return validCoordinates;
 	}
+	
 	static boolean checkValid(int row, int col, Pair prevBlank) {
 		boolean valid = true;
 		if(row < 0 || row > 4 || col < 0 || col > 4 || (prevBlank.row == row && prevBlank.col == col)){
