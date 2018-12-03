@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.lang.Math;
+//https://open.kattis.com/problems/stockbroker
 
 public class DaydreamingStockbroker{
 
